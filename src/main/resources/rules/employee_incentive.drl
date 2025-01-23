@@ -1,0 +1,24 @@
+package KieRule;
+import com.wsgc.rule.dto.Award;
+import com.wsgc.rule.dto.Employee;
+import com.wsgc.rule.dto.Project;
+
+dialect "mvel"
+dialect "java"
+
+rule "if employee is Srini set Salary to 1 million"
+salience 100
+ when
+   $emp: Employee(employeeName=="Srini", salary==0)
+ then
+   $emp.setSalary(1000);
+   update($emp);
+end;
+
+rule "if salary is not 0"
+salience 99
+ when
+   $emp: Employee(salary!=0)
+ then
+   $emp.setSalary(1000000);
+end;
