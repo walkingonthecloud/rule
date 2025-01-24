@@ -4,6 +4,6 @@ import org.springframework.http.ResponseEntity;
 
 public interface LabelAryService {
 
-    byte[] convertZPLToPNG(String zpl);
+    byte[] convertZPLToPNG(String zpl, String mode);
 
 }
